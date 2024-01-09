@@ -20,10 +20,15 @@
           xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 http://maven.apache.org/xsd/changes-1.0.0.xsd">
   <properties>
     <title>Apache Commons Email Release Notes</title>
-    <author email="epugh@STOPSPAMopensourceconnections.com">Eric Pugh</author>
   </properties>
 
   <body>
+    <release version="1.6.1" date="202Y-MM-DD" description="Feature release (Java 8 or above).">
+      <!-- FIX -->
+      <action type="fix" dev="ggregory" due-to="Gary Gregory">Fix Checkstyle configuration.</action>
+      <!-- UPDATE -->
+      <action type="update" due-to="Dependabot" dev="ggregory">Bump org.slf4j:slf4j-jdk14 from 2.0.9 to 2.0.10 #194.</action>
+    </release>
     <release version="1.6.0" date="2023-12-17" description="Feature release (Java 8 or above).">
       <!-- FIX -->
       <action issue="EMAIL-190" type="fix" due-to="sgoeschl">Fix broken JDK 9 build by updating "easymock" and other dependencies.</action>
