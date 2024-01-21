@@ -122,25 +122,29 @@ public class EmailException extends Exception {
      *
      * @param out the {@code PrintStream} to use for output
      */
+    private static final Object printStreamLock = new Object();
     @Override
-    public void printStackTrace(final PrintStream out) {
-        synchronized (out) {
-            final PrintWriter pw = new PrintWriter(new OutputStreamWriter(out, Charset.defaultCharset()), false);
-            printStackTrace(pw);
-            // Flush the PrintWriter before it's GC'ed.
-            pw.flush();
+    public void printStackTrace(PrintStream out) {
+        synchronized (printStreamLock) {
+            try (PrintWriter pw = new PrintWriter(out, false)) {
+                printStackTrace(pw);
+            }
         }
     }
+
 
     /**
      * Prints the stack trace of this exception to the specified writer.
      *
      * @param out the {@code PrintWriter} to use for output
      */
+    private static final Object printWriterLock = new Object();
+
     @Override
-    public void printStackTrace(final PrintWriter out) {
-        synchronized (out) {
+    public void printStackTrace(PrintWriter out) {
+        synchronized (printWriterLock) {
             super.printStackTrace(out);
         }
     }
+
 }
