@@ -17,10 +17,8 @@
 
 package org.apache.commons.mail2.core;
 
-import java.io.OutputStreamWriter;
 import java.io.PrintStream;
 import java.io.PrintWriter;
-import java.nio.charset.Charset;
 import java.util.Collection;
 import java.util.concurrent.Callable;
 import java.util.function.Supplier;
