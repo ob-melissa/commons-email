@@ -53,8 +53,6 @@ import jakarta.mail.internet.ParseException;
 
 /**
  * JUnit test case for Email Class
- *
- * @since 1.0
  */
 public class EmailTest extends AbstractEmailTest {
 

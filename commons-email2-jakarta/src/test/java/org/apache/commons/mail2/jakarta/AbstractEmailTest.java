@@ -47,8 +47,6 @@ import jakarta.mail.internet.MimeMessage;
 
 /**
  * Base test case for Email test classes.
- *
- * @since 1.0
  */
 public abstract class AbstractEmailTest {
     /** Padding at end of body added by wiser/send */
@@ -102,7 +100,7 @@ public abstract class AbstractEmailTest {
     /**
      * Create a mocked URL object which always throws an IOException when the openStream() method is called.
      * <p>
-     * Several ISPs do resolve invalid URLs like {@code http://example.invalid} to some error page causing tests to fail otherwise.
+     * Several ISPs do resolve invalid URLs like {@code https://example.invalid} to some error page causing tests to fail otherwise.
      * </p>
      *
      * @return an invalid URL
@@ -179,7 +177,6 @@ public abstract class AbstractEmailTest {
      * @param wiserMessage The wiser message from which to extract the message body
      * @return The string representation of the message body
      * @throws IOException Thrown while serializing the body from {@link DataHandler#writeTo(java.io.OutputStream)}.
-     * @since 1.1
      */
     private String getMessageBody(final WiserMessage wiserMessage) throws IOException {
         if (wiserMessage == null) {
@@ -209,7 +206,6 @@ public abstract class AbstractEmailTest {
      * @return A byte array representing the message body
      * @throws IOException        Thrown while serializing the body from {@link DataHandler#writeTo(java.io.OutputStream)}.
      * @throws MessagingException Thrown while getting the body content from {@link MimeMessage#getDataHandler()}
-     * @since 1.1
      */
     private byte[] getMessageBodyBytes(final MimeMessage mimeMessage) throws IOException, MessagingException {
         final DataHandler dataHandler = mimeMessage.getDataHandler();
@@ -226,7 +222,6 @@ public abstract class AbstractEmailTest {
      *
      * @param fakeMailServer The server from which the address is picked up.
      * @return {@code true} if the server claims to be running
-     * @since 1.1
      */
     protected boolean isMailServerStopped(final Wiser fakeMailServer) {
         return !fakeMailServer.getServer().isRunning();
@@ -254,7 +249,6 @@ public abstract class AbstractEmailTest {
      * @throws MessagingException
      * @throws IOException        Thrown while serializing the body from {@link DataHandler#writeTo(java.io.OutputStream)}.
      * @throws MessagingException Thrown while getting the body content from {@link MimeMessage#getDataHandler()}
-     * @since 1.1
      */
     private String serializeEmailMessage(final WiserMessage wiserMessage) throws MessagingException, IOException {
         if (wiserMessage == null) {
